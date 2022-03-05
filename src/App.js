@@ -7,7 +7,7 @@ function App() {
   return (
     <body>
       <Navbar/>
-      <ItemListContainer/>
+      <ItemListContainer saludar ={ "BIENVENIDOS A NUESTRO PETSHOP"}/>
       </body>  
   );
 }
