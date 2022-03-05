@@ -1,7 +1,7 @@
-
+import Imagen from './Images/Carrito.png'
 function CartWidget () {
     return (
-        <img src='./Images/Carrito.png' alt='ImagenCarrito'/>
+        <img src={Imagen} alt='ImagenCarrito' width="50" height="24"/>
     );
     
 }
