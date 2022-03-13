@@ -10,7 +10,7 @@ function ItemCount () {
     })
     
     const restarCount = ()=>{ 
-                               if(count > 0 && count <7){
+                               if(count > 1 && count <7){
                                              setCount (count -1)
                                              }
                                              else {alert ('Debe ser mayor a 1.')

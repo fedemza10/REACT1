@@ -10,7 +10,7 @@ const alimentos = [
         id: "1",
         name: "Proplan Adultos",
         category: "Perros",
-        image: <img src={proplanAdulto} alt="proplanAdulto" />,
+        image: proplanAdulto,
         price: 5500,
         stock: 50,
     },
@@ -18,7 +18,7 @@ const alimentos = [
         id: "2",
         name: "Royal Canin",
         category: "Gatos",
-        image: <img src={royalGato} alt="royalGato" />,
+        image: royalGato,
         price: 4500,
         stock: 30,
     },
@@ -26,7 +26,7 @@ const alimentos = [
         id: "3",
         name: "Royal Canin - Maxi Adultos",
         category: "Perros",
-        image: <img src={royalMaxi} alt="royalMaxi" />,
+        image: royalMaxi,
         price: 8500,
         stock: 50,
     },
@@ -34,7 +34,7 @@ const alimentos = [
         id: "4",
         name: "Vital Can - Adultos",
         category: "Perros",
-        image: <img src={vitalAdulto} alt="vitalAdulto" />,
+        image: vitalAdulto,
         price: 6500,
         stock: 50,
     },
@@ -42,7 +42,7 @@ const alimentos = [
 const getFetch = new Promise(  (resolve, reject) => {
     let condition= true
     if (condition) {  
-        setTimeout( ()=> { resolve(alimentos)}, 4000);    
+        setTimeout( ()=> { resolve(alimentos)}, 2000);    
     }   else { reject ('Not found')
              }
              

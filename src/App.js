@@ -1,16 +1,15 @@
 /*import logo from './logo.svg';*/
 import './App.css';
-import ItemCount from './components/ItemCount';
 import ItemListContainer from './components/ItemListContainer';
-import Navbar from './components/NavBar';
+import Navbar from './components/NavBar1';
 
 function App() {
   return (
-    <body>
+    <>
       <Navbar/>
       <ItemListContainer saludar ={ "BIENVENIDOS A NUESTRO PETSHOP"}/>
-      <ItemCount />
-      </body>  
+      
+      </>  
   );
 }
 
