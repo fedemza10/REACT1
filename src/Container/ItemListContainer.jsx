@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import getFetch from "../getFetch/getFetch";
-import CargandoWidget from "./CargandoWidget";
-import Itemlist from "./ItemList";
-import ItemCount from "./ItemCount";
+import getFetch from "../Helpers/getFetch";
+import CargandoWidget from '../components/CargandoWidget';
+import Itemlist from "../components/ItemList";
+import ItemCount from "../components/ItemCount";
 
 
 function ItemListContainer({ saludar }) {

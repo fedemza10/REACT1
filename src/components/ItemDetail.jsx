@@ -1,5 +1,7 @@
- function Item ({prod} )  {
-     return (
+
+
+function ItemDetail ({prod}) {
+    return (
         <>
             <div  key={prod.id}
                className='col-md-4' >
@@ -13,7 +15,7 @@
 
                           <div className="card-body">
                              <img src={prod.image} alt='' className='w-50' />
-                                    {prod.price}                                                            
+                                      {prod.price}                                                            
                             </div>
                       
                           <div className="card-footer">              
@@ -26,9 +28,6 @@
                    </div>
             </div>
         </>
-) 
-
-     
- }
-
- export default Item 
+    )
+}
+export default ItemDetail
