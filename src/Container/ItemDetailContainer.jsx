@@ -13,7 +13,7 @@ function ItemDetailContainer() {
     
     getFetch
     
-    .then (response =>setProds(response.find(prod => prod.id === 1)))
+    .then (response =>setProds(response.find(prod => prod.id === '1')))
     .catch (error => console.log(error))  
     .finally (()=> setLoading (false))
 
@@ -22,7 +22,7 @@ function ItemDetailContainer() {
   
   return (
     <>
-       <ItemDetail prods={prods}/>
+       <ItemDetail prod={prods}/>
     </>
   );
   }

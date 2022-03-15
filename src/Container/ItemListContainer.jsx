@@ -3,6 +3,7 @@ import getFetch from "../Helpers/getFetch";
 import CargandoWidget from '../components/CargandoWidget';
 import Itemlist from "../components/ItemList";
 import ItemCount from "../components/ItemCount";
+import ItemDetailContainer from "./ItemDetailContainer";
 
 
 function ItemListContainer({ saludar }) {
@@ -32,6 +33,7 @@ function ItemListContainer({ saludar }) {
                  <>                
                    <Itemlist prods = {prods} />
                    <ItemCount />
+                   <ItemDetailContainer/>
 
                    </>
                            
