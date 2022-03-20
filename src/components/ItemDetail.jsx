@@ -1,12 +1,14 @@
 
 
+
+
 function ItemDetail ({prod}) {
     return (
         <>
-            <div  key={prod.id}
+            <div  
                className='col-md-4' >
 
-                  <div className="card w-100 mt-5" >
+                  <div className="card w-125 mt-5" >
                       
 
                           <div className="card-header">
@@ -14,14 +16,23 @@ function ItemDetail ({prod}) {
                            </div>
 
                           <div className="card-body">
-                             <img src={prod.image} alt='' className='w-50' />
-                                      {prod.price}                                                            
+                             <img src={prod.image} alt='' className='w-80' />
+                                                                                                 
                             </div>
                       
-                          <div className="card-footer">              
-                              <button className="btn btn-outline-primary btn-block">
-                                 detalle del producto
-                                 </button> 
+                          <div className="card-footer">
+                                
+
+                            
+
+                            
+                          <button className="btn btn-outline-primary btn-block">
+                                 {prod.price}
+                                 </button>                            
+
+                                
+                                          
+                              
                             </div>                                                              
                                                  
                         

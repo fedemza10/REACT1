@@ -1,52 +1,44 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container'
+import  Nav from "react-bootstrap/Nav"
+import  Navbar from "react-bootstrap/Navbar"
+import  NavDropdown from "react-bootstrap/NavDropdown"
+import { NavLink } from 'react-router-dom'
 import CartWidget from './CartWidget'
 
-function Navbar() {
+
+function NavBar() {
   return (
       <div>
-    <nav className="navbar  navbar-expand-lg navbar-light bg-light ">
-          <div className="container ">
-            <a className="navbar-brand active" aria-current="page" href="./index.html">GOLDEN SHOP</a>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse " id="navbarNav" >
-              <ul className="navbar-nav m-auto  ">
-                <li className="nav-item">
-                  <a className="nav-link "  href="#"> ALIMENTOS PARA PERROS </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#"> ALIMENTOS PARA GATOS </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#"> ACCESORIOS</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#"> GUARDERIA</a> 
-                </li>
-                
-                <li className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                   CONTACTO
-                  </a>
-                  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                   <li><a className="dropdown-item" href="#">CONTACTANOS</a></li>
-                   <li><a className="dropdown-item" href="#">TRABAJAR CON NOSTROS</a></li>
-            
-                    </ul>
-                </li>
-                <li className="nav-item">
-                 <a className="navbar-brand" href="#">
-                  <CartWidget/>
-                 </a>
-                </li>
+    
+    <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
+  <Container >
+  <NavLink to="/"> GOLDEN SHOP </NavLink>
+  <Navbar.Toggle aria-controls="responsive-navbar-nav " />
+  <Navbar.Collapse id="responsive-navbar-nav " className='ms-5'>
+    <Nav className="me-auto">
+      <NavLink to="/category/Perros" className= ' ms-5'>ALIMENTO PARA PERROS</NavLink>
+      <NavLink to="/category/Gatos"className= ' ms-5'>ALIMENTO PARA GATOS</NavLink>
+      <NavDropdown title="CONTACTO" id="collasible-nav-dropdown" className= ' ms-5'>
         
-          </ul>
-      </div>
-    </div>
-  </nav>
+        <NavDropdown.Item href="#action/3.2">ESCRIBINOS</NavDropdown.Item>
+        
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">TRABAJAR CON NOSOTROS</NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
+    <Nav>
+    <NavLink to='Cart' className={({ isActive })=> isActive ? 'active' : ''} >
+                        <CartWidget />
+                    </NavLink>
+
+    </Nav>
+  </Navbar.Collapse>
+  </Container>
+</Navbar>
+  
  </div>
   )
 }
 
-export default Navbar
+export default NavBar
