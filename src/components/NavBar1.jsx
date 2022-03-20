@@ -5,21 +5,23 @@ import  Navbar from "react-bootstrap/Navbar"
 import  NavDropdown from "react-bootstrap/NavDropdown"
 import { NavLink } from 'react-router-dom'
 import CartWidget from './CartWidget'
+import './NavBar.css'
+
 
 
 function NavBar() {
   return (
       <div>
     
-    <Navbar collapseOnSelect expand="lg" bg="success" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" className= 'menuL'>
   <Container >
-  <NavLink to="/"> GOLDEN SHOP </NavLink>
+  <NavLink to="/" className= 'menuL'> GOLDEN SHOP </NavLink>
   <Navbar.Toggle aria-controls="responsive-navbar-nav " />
   <Navbar.Collapse id="responsive-navbar-nav " className='ms-5'>
     <Nav className="me-auto">
-      <NavLink to="/category/Perros" className= ' ms-5'>ALIMENTO PARA PERROS</NavLink>
-      <NavLink to="/category/Gatos"className= ' ms-5'>ALIMENTO PARA GATOS</NavLink>
-      <NavDropdown title="CONTACTO" id="collasible-nav-dropdown" className= ' ms-5'>
+      <NavLink to="/category/Perros" className= ' ms-5 menuL'>ALIMENTO PARA PERROS</NavLink>
+      <NavLink to="/category/Gatos"className= ' ms-5  menuL'>ALIMENTO PARA GATOS</NavLink>
+      <NavDropdown title="CONTACTO" id="collasible-nav-dropdown" className= ' ms-5 '>
         
         <NavDropdown.Item href="#action/3.2">ESCRIBINOS</NavDropdown.Item>
         

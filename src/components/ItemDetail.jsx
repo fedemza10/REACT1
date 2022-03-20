@@ -5,6 +5,9 @@
 function ItemDetail ({prod}) {
     return (
         <>
+          <center>
+
+          
             <div  
                className='col-md-4' >
 
@@ -27,7 +30,7 @@ function ItemDetail ({prod}) {
 
                             
                           <button className="btn btn-outline-primary btn-block">
-                                 {prod.price}
+                              $   {prod.price}
                                  </button>                            
 
                                 
@@ -37,7 +40,8 @@ function ItemDetail ({prod}) {
                                                  
                         
                    </div>
-            </div>
+             </div>
+            </center>
         </>
     )
 }

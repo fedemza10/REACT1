@@ -8,7 +8,7 @@ function ItemDetailContainer() {
 
   const [loading, setLoading] = useState (true)
   const [ prods, setProds] = useState ([])
-  const [ detailId] = useParams ()
+  const { detailId} = useParams ()
  
  
   useEffect (()=>{ 
