@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import getFetch from "../Helpers/getFetch";
 import CargandoWidget from '../components/CargandoWidget';
 import Itemlist from "../components/ItemList";
-import ItemCount from "../components/ItemCount";
+
 import { useParams } from "react-router-dom";
 
 
@@ -37,7 +37,8 @@ function ItemListContainer({ saludar }) {
     
   },[category]) 
   console.log (prods)
-  console.log (category)
+ 
+  
   return (
        
     
@@ -52,7 +53,7 @@ function ItemListContainer({ saludar }) {
                                : 
                                 <>                                         
                                    <Itemlist prods = {prods} />
-                                   <ItemCount />                               
+                                                                   
 
                                   </>
                        }  

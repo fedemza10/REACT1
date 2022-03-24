@@ -4,6 +4,7 @@ import ItemDetail from "../components/ItemDetail";
 import { useParams } from "react-router-dom";
 
 
+
 function ItemDetailContainer() {
 
   const [loading, setLoading] = useState (true)
@@ -25,6 +26,7 @@ function ItemDetailContainer() {
   return (
     <>
        <ItemDetail prod={prods}/>
+       
     </>
   );
   }

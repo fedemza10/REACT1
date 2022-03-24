@@ -1,3 +1,4 @@
+import ItemCount from "./ItemCount"
 
 
 
@@ -8,8 +9,7 @@ function ItemDetail ({prod}) {
           <center>
 
           
-            <div  
-               className='col-md-4' >
+            <div className='col-md-4' >
 
                   <div className="card w-125 mt-5" >
                       
@@ -23,25 +23,26 @@ function ItemDetail ({prod}) {
                                                                                                  
                             </div>
                       
-                          <div className="card-footer">
-                                
+                          <div className="card-footer">                
 
-                            
+                              <button className="btn btn-outline-primary btn-block">
+                                       $   {prod.price}
+                                     </button>   
 
-                            
-                          <button className="btn btn-outline-primary btn-block">
-                              $   {prod.price}
-                                 </button>                            
+                                  </div>
 
-                                
-                                          
-                              
-                            </div>                                                              
+                                     
+                                            
                                                  
                         
                    </div>
-             </div>
-            </center>
+
+                   
+              </div>
+             
+              <ItemCount initial={1} stock={5}/>
+
+          </center>
         </>
     )
 }

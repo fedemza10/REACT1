@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import Intercambiabilidad from "./Intercambiabilidad";
 
-function ItemCount () {
+function ItemCount ({initial, stock}) {
     
     const [count,setCount]  = useState(1)
     useEffect (()=> {
@@ -10,7 +11,7 @@ function ItemCount () {
     })
     
     const restarCount = ()=>{ 
-                               if(count > 1 && count <7){
+                               if(count > initial){
                                              setCount (count -1)
                                              }
                                              else {alert ('Debe ser mayor a 1.')
@@ -20,7 +21,7 @@ function ItemCount () {
 
 
     const sumarCount = ()=>  {
-                              if (count < 5){
+                              if (count < stock){
                                              setCount ( count +1)
                                             }
                                              else {alert ('Se alcanzó el stock máximo.')
@@ -28,33 +29,38 @@ function ItemCount () {
                                             }
 
                                              }
+                                            
+    
                             
   
     return ( 
-    <> 
+    < > 
      
-         <h3 className="ms-5 mt-5"> PRODUCTO </h3>
          
+        <div className=" mt-5">
          <button 
-           className="btn btn-outline-primary ms-5 "
+           className="btn btn-outline-primary ms-5  "
            onClick={restarCount}>
                {'-'}
              </button>
+
          <label className=" ms-5">
              {count}
-         </label>
+              </label>
 
          <button 
            className="btn btn-outline-primary ms-5"
            onClick={sumarCount}>
              {'+'}
-             </button>   
+             </button>
+             
+             
+           </div>
+            
 
-          <button 
-           className="btn btn-outline-primary btn-block ms-5"
-           onClick={()=> alert (' agregado al carrito')} >
-             Agregar al carrito
-             </button> 
+           
+              <Intercambiabilidad />
+              
 
         
         

@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
 
+
+
  function Item ({prod} )  {
      return (
         <>
@@ -31,6 +33,9 @@ import { Link } from "react-router-dom"
                         
                    </div>
             </div>
+
+            
+            
         </>
 ) 
 
