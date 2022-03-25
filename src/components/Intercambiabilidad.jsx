@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import ItemCount from "./ItemCount"
 
 
 
@@ -37,9 +38,13 @@ const Intercambiabilidad = () => {
         <>
             
             
-            {
+            { 
                 inputType === 'button' ? 
-                    <ButtonCount handleInter={handleInter}  />
+                <>
+                    <ItemCount initial={1} stock={5}/>
+                    <ButtonCount handleInter={handleInter}  /> 
+                    
+                    </>
                 : 
                     <InputCount />
             }

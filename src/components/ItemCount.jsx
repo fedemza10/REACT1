@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import Intercambiabilidad from "./Intercambiabilidad";
+
+
 
 function ItemCount ({initial, stock}) {
     
@@ -59,7 +60,7 @@ function ItemCount ({initial, stock}) {
             
 
            
-              <Intercambiabilidad />
+             
               
 
         

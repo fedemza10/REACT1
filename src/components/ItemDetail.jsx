@@ -1,4 +1,5 @@
-import ItemCount from "./ItemCount"
+import Intercambiabilidad from "./Intercambiabilidad"
+
 
 
 
@@ -40,7 +41,7 @@ function ItemDetail ({prod}) {
                    
               </div>
              
-              <ItemCount initial={1} stock={5}/>
+              <Intercambiabilidad/>
 
           </center>
         </>
