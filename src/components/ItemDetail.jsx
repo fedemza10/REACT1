@@ -59,11 +59,25 @@ function ItemDetail ({prod}) {
                    
               </div>
 
-              { purchased ? ( <Link to='/cart' >
-                               <button className="btn btn-outline-success  mt-3" 
-                                        onClick={()=>console.log('ir al carrito de compras') } >
-                                        FINALIZA TU COMPRA</button>
-                              </Link>)
+              { purchased ? ( 
+                                  
+                              <>    
+                                 <Link to='/cart' >
+                                       <button className="btn btn-outline-success  mt-3" 
+                                               onClick={()=>console.log('ir al carrito de compras') } >
+                                               FINALIZA TU COMPRA
+                                        </button>
+                                    </Link>
+
+                                 <Link to='/'>
+                                        <button className='btn btn-outline-warning ms-5 mt-3 '
+                                                onClick={()=>console.log('regresar a menu principal') }>
+                                                CONTINUAR COMPRANDO
+                                        </button>
+      
+                               </Link>
+                               </>
+      )
 
                          : (  <ItemCount initial={1} stock={5} onAdd = {onAdd} />)
               }
