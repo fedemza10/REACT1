@@ -1,10 +1,28 @@
-import Intercambiabilidad from "./Intercambiabilidad"
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useCartContext } from "./Context/CartContext";
+import ItemCount from "./ItemCount"
+
 
 
 
 
 
 function ItemDetail ({prod}) {
+  const [purchased, setPurchased] = useState(false);
+  const {addToCart,  cartList} = useCartContext()
+
+  const onAdd = (cant) => {
+    
+    addToCart( { ...prod, cantidad: cant } )
+    
+    
+    setPurchased(true);
+    console.log (cant)
+    console.log(cartList)
+  };
+
+ 
     return (
         <>
           <center>
@@ -17,12 +35,12 @@ function ItemDetail ({prod}) {
 
                           <div className="card-header">
                               {`${prod.name} - ${prod.category}`}
-                           </div>
+                          </div>
 
                           <div className="card-body">
                              <img src={prod.image} alt='' className='w-80' />
                                                                                                  
-                            </div>
+                          </div>
                       
                           <div className="card-footer">                
 
@@ -30,7 +48,7 @@ function ItemDetail ({prod}) {
                                        $   {prod.price}
                                      </button>   
 
-                                  </div>
+                          </div>
 
                                      
                                             
@@ -40,8 +58,15 @@ function ItemDetail ({prod}) {
 
                    
               </div>
-             
-              <Intercambiabilidad/>
+
+              { purchased ? ( <Link to='/cart' >
+                               <button className="btn btn-outline-success  mt-3" 
+                                        onClick={()=>console.log('ir al carrito de compras') } >
+                                        FINALIZA TU COMPRA</button>
+                              </Link>)
+
+                         : (  <ItemCount initial={1} stock={5} onAdd = {onAdd} />)
+              }
 
           </center>
         </>

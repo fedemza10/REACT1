@@ -23,7 +23,7 @@ import { Link } from "react-router-dom"
                           <div className="card-footer">     
                           <Link to={`/detail/${prod.id}`}>
                           <button className="btn btn-outline-primary btn-block">
-                                 detalle del producto
+                                 Detalle del producto
                                  </button>                            
 
                           </Link>         

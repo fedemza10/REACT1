@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 
 
-function ItemCount ({initial, stock}) {
+function ItemCount ({initial, stock, onAdd}) {
     
     const [count,setCount]  = useState(1)
     useEffect (()=> {
@@ -30,11 +30,20 @@ function ItemCount ({initial, stock}) {
                                             }
 
                                              }
+    const agregar = () => {
+                           onAdd( count )
+                           }
+                                      
+                                             
+    
                                             
     
+  console.log (count)
+  
                             
   
     return ( 
+
     < > 
      
          
@@ -53,6 +62,11 @@ function ItemCount ({initial, stock}) {
            className="btn btn-outline-primary ms-5"
            onClick={sumarCount}>
              {'+'}
+             </button>
+
+         <button className="btn btn-outline-primary ms-5  " 
+              onClick={agregar}>
+              AGREGAR AL CARRITO 
              </button>
              
              

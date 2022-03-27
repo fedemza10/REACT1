@@ -7,6 +7,7 @@ import NavBar from './components/NavBar1';
 import ItemDetailContainer from './Container/ItemDetailContainer';
 import Cart from './components/Cart';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import CartContextProvider from './components/Context/CartContext';
 
 
 
@@ -16,6 +17,7 @@ function App() {
      
      <BrowserRouter>
           <>
+              <CartContextProvider>
               <NavBar/>  
 
               <Routes>     
@@ -78,8 +80,9 @@ function App() {
       
 
       
-      
-              </>  
+              </CartContextProvider>
+          </>  
+              
       </BrowserRouter>
   );
 }
