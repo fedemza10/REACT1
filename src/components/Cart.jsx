@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useCartContext } from "./Context/CartContext"
 
 
@@ -7,12 +8,17 @@ function Cart() {
 
   const { cartList, vaciarCarrito, deleteToCart, totalCart } = useCartContext()
 
-const totalCarrito = totalCart()
+  const totalCarrito = totalCart()
+ 
+  
 
   return (
-    <div >
-      <center>
-      { cartList.map(prod => 
+       
+    <>
+      
+     
+        <center>
+          {cartList.map(prod => 
                           <div  
                               className='col-md-4' >
 
@@ -35,36 +41,44 @@ const totalCarrito = totalCart()
                                               Precio unitario $  {prod.price}
                                           </div>
                                           <button className= '  btn btn-outline-danger   mt-5' 
-                                                  onClick={deleteToCart}>
+                                                  onClick={() => deleteToCart (prod)}>
                                                   Eliminar Producto 
                                           </button>
-                                          
-                                          
-                                          
-                                                                                                                                    
+                                                     
 
                                  </div>
 
                            </div>
-            )
-       }
+                        )
+          }
 
-               <div>
-               El total de su compra es $ { totalCarrito }
-               </div>
 
-                                         
-      
-             
-           
-             <button className= '  btn btn-outline-danger   mt-5' 
-                     onClick={vaciarCarrito}>
-                     VACIAR CARRITO
-             </button>
+                          <div>
+                             El total de su compra es $ { totalCarrito }
+                           </div>
 
-      </center>      
+                         <div>
+                            <Link to= '/'>
+                                   <button className= '  btn btn-outline-warning   mt-5' 
+                                           onClick={vaciarCarrito}>
+                                           VACIAR CARRITO Y SEGUIR COMPRANDO
+                                          </button>
+                              </Link> 
+                           
+
+                         </div>
+                         
+
         
-    </div>
+      
+
+        
+      
+ 
+      </center>   
+        
+    </>
+ 
   )
 }
 

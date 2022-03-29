@@ -4,11 +4,12 @@ import Imagen from './Images/Carrito.png'
 
 
 const CartWidget =()=> {
-    const {cartList} = useCartContext() 
+    const {cartList, totalItems} = useCartContext() 
 
     
 
      const widget= (cartList.length > 0) ? true : false;
+     const total = totalItems()
 
      
    
@@ -16,9 +17,12 @@ const CartWidget =()=> {
         <>
           { widget?
         
-               <div> <img src={Imagen} alt='ImagenCarrito' width="50" height="24"/>
-                           
-              </div> 
+               <div> 
+                 
+                 <img className="mt-3" src={Imagen} alt='ImagenCarrito' width="50" height="24"/>
+                 <p className="menuL ms-4 " width= "25" height= "12"> {total }
+                   </p>          
+               </div> 
                 :
                 <></>      
        }

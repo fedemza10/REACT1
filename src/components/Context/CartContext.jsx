@@ -28,8 +28,11 @@ function CartContextProvider({children}) {
    }
   
    const totalCart =() =>{
-       return cartList.reduce ((acc,value) => acc.price + value.price,0)
+       return cartList.reduce ((acc,value) => acc + value.price* value.cantidad,0)
    }    
+   const totalItems =() =>{
+       return cartList.reduce ((acc, value) => acc + value.cantidad *1, 0)
+   }
     const vaciarCarrito= () =>{
         setCartList([])
     }
@@ -42,7 +45,8 @@ function CartContextProvider({children}) {
             addToCart,            
             vaciarCarrito,
             deleteToCart,
-            totalCart
+            totalCart,
+            totalItems
         }}>
             { children }
         </CartContext.Provider>
