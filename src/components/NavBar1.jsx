@@ -14,7 +14,7 @@ function NavBar() {
       <div>
     
     <Navbar collapseOnSelect expand="lg" bg="success" variant="dark" className= 'menuL'>
-  <Container >
+  <Container  >
   <NavLink to="/" className= 'menuL'> GOLDEN SHOP </NavLink>
   <Navbar.Toggle aria-controls="responsive-navbar-nav " />
   <Navbar.Collapse id="responsive-navbar-nav " className='ms-5'>
