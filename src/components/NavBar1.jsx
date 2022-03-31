@@ -19,8 +19,8 @@ function NavBar() {
   <Navbar.Toggle aria-controls="responsive-navbar-nav " />
   <Navbar.Collapse id="responsive-navbar-nav " className='ms-5'>
     <Nav className="me-auto">
-      <NavLink to="/category/Perros" className= ' ms-5 menuL'>ALIMENTO PARA PERROS</NavLink>
-      <NavLink to="/category/Gatos"className= ' ms-5  menuL'>ALIMENTO PARA GATOS</NavLink>
+      <NavLink to="/category/perros" className= ' ms-5 menuL'>ALIMENTO PARA PERROS</NavLink>
+      <NavLink to="/category/gatos"className= ' ms-5  menuL'>ALIMENTO PARA GATOS</NavLink>
       <NavDropdown title="CONTACTO" id="collasible-nav-dropdown" className= ' ms-5 '>
         
         <NavDropdown.Item href="#action/3.2">ESCRIBINOS</NavDropdown.Item>

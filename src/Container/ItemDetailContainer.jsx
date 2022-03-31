@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import getFetch from "../Helpers/getFetch";
+//import getFetch from "../Helpers/getFetch";
 import ItemDetail from "../components/ItemDetail";
 import { useParams } from "react-router-dom";
 import CargandoWidget from "../components/CargandoWidget";
-import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 
 
@@ -18,12 +18,12 @@ function ItemDetailContainer() {
  
   useEffect (()=>{ 
     
-    const db = getFirestore()
-         const queryCollection = collection (db, 'items')
+    const dataBase = getFirestore()
+         
            
-           const queryFilter = query (queryCollection, where ('category','==','perros'))
-           getDocs (queryFilter)
-           .then (response => setProds (response.docs.map (prod =>({id: prod.id, ...prod.data()} ))))
+           const queryDoc = doc ( dataBase, 'items', 'detailId')
+           getDoc (queryDoc)
+           .then (response => setProds ({id: response.id, ...response.data()} ))
            .catch (error => console.log (error))
            .finally (()=> setLoading (false))
 

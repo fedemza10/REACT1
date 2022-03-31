@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import getFetch from "../Helpers/getFetch";
+//import getFetch from "../Helpers/getFetch";
 import CargandoWidget from '../components/CargandoWidget';
 import Itemlist from "../components/ItemList";
 import { useParams } from "react-router-dom";
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+
 
 
 
@@ -24,17 +25,17 @@ function ItemListContainer({ saludar }) {
     const queryCollection =  collection(database, 'items' )
     if (category) {
 
-      const queryFilter = query (queryCollection, where('category', '==',"perros"))
+      const queryFilter = query (queryCollection, where('category', '==',category))
 
          getDocs(queryFilter)
-        .then(response => setProds(response.docs.filter(product => ({ id: product.id, ...product.data() }))))
+        .then(response => setProds(response.docs.map(product => ({ id: product.id, ...product.data() }))))
         .catch(err => console.log(err))
         .finally(() => setLoading(() => false))   
 
         } else {   
           
           getDocs(queryCollection)
-         .then (response =>setProds(response))
+         .then ((response=> setProds (response.docs.map ( product=>({id: product.id, ...product.data()})))))
          .catch (error => console.log(error))  
          .finally (()=> setLoading (false))
                 }

@@ -8,7 +8,7 @@ import vitalAdulto from '../components/Images/vital-adulto.jpg';
 const alimentos = [
     {
         id: "1",
-        name: "Proplan Adultos",
+        name: "proPlanAdulto",
         category: "Perros",
         image: proplanAdulto,
         price: 5500,
@@ -16,7 +16,7 @@ const alimentos = [
     },
     {
         id: "2",
-        name: "Royal Canin",
+        name: "royalCaninGato",
         category: "Gatos",
         image: royalGato,
         price: 4500,
@@ -24,7 +24,7 @@ const alimentos = [
     },
     {
         id: "3",
-        name: "Royal Canin - Maxi Adultos",
+        name: "royalCaninPerros",
         category: "Perros",
         image: royalMaxi,
         price: 8500,
@@ -32,20 +32,21 @@ const alimentos = [
     },
     {
         id: "4",
-        name: "Vital Can - Adultos",
+        name: "vitalCanBalanced",
         category: "Perros",
         image: vitalAdulto,
         price: 6500,
         stock: 50,
     },
 ]
+
 const getFetch = new Promise(  (resolve, reject) => {
     let condition= true
     if (condition) {  
         setTimeout( ()=> { resolve(alimentos)}, 2000);    
     }   else { reject ('Not found')
              }
-             
+   
     
     
 }
