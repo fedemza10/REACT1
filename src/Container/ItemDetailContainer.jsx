@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import getFetch from "../Helpers/getFetch";
 import ItemDetail from "../components/ItemDetail";
 import { useParams } from "react-router-dom";
-import { collection, doc, getDoc, getDocs, getFirestore, limit, query, where } from 'firebase/firestore'
+import CargandoWidget from "../components/CargandoWidget";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 
 
@@ -18,29 +19,32 @@ function ItemDetailContainer() {
   useEffect (()=>{ 
     
     const db = getFirestore()
-
-     const queryDoc = doc (db, 'items', 'UHGGuI65ttlA43R99n8O') 
-         getDoc(queryDoc)
-        .then(resp => setProds( {id: resp.id, ...resp.data()} ))
-        .catch (error => console.log(error))  
-        .finally (()=> setLoading (false))
+         const queryCollection = collection (db, 'items')
+           
+           const queryFilter = query (queryCollection, where ('category','==','perros'))
+           getDocs (queryFilter)
+           .then (response => setProds (response.docs.map (prod =>({id: prod.id, ...prod.data()} ))))
+           .catch (error => console.log (error))
+           .finally (()=> setLoading (false))
 
 
     
-    //   getFetch
+ //     getFetch
     
     
-   // .then (response =>setProds(response.find(prod => prod.id === detailId)))
-    //.catch (error => console.log(error))  
-   // .finally (()=> setLoading (false))
+  //  .then (response =>setProds(response.find(prod => prod.id === detailId)))
+  // .catch (error => console.log(error))  
+  //  .finally (()=> setLoading (false))
 
   },[detailId]) 
   console.log (prods)
   
   return (
     <>
-       <ItemDetail prod={prods}/>
-       
+     { loading ?  <CargandoWidget/> 
+               : 
+               <ItemDetail prod={prods}/>
+      }   
     </>
   );
   }
