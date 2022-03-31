@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 
 
 
+
 function ItemListContainer({ saludar }) {
 
   const [loading, setLoading] = useState (true)
@@ -18,6 +19,7 @@ function ItemListContainer({ saludar }) {
  
  
   useEffect (()=>{ 
+   
     if (category) {
       getFetch
     
