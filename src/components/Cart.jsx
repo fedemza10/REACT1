@@ -18,6 +18,9 @@ function Cart() {
       
      
         <center>
+          
+
+          
           {cartList.map(prod => 
                           <div  
                               className='col-md-4' >
@@ -50,16 +53,16 @@ function Cart() {
 
                            </div>
                         )
-          }
+          } 
 
 
                           <div>
                              El total de su compra es $ { totalCarrito }
                            </div>
-
+                     
                          <div>
                             <Link to= '/'>
-                                   <button className= '  btn btn-outline-warning   mt-5' 
+                                   <button className= '  btn btn-outline-warning   mt-5 mb-5' 
                                            onClick={vaciarCarrito}>
                                            VACIAR CARRITO Y SEGUIR COMPRANDO
                                           </button>

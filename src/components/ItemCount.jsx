@@ -47,9 +47,9 @@ function ItemCount ({initial, stock, onAdd}) {
     < > 
      
          
-        <div className=" mt-5">
+        <div className=" mt-5 mb-5">
          <button 
-           className="btn btn-outline-primary ms-5  "
+           className="btn btn-outline-primary ms-5 mb- "
            onClick={restarCount}>
                {'-'}
              </button>

@@ -74,11 +74,11 @@ function ItemListContainer({ saludar }) {
 
                      { loading ?  <CargandoWidget/> 
                                : 
-                                <>                                         
-                                   <Itemlist prods = {prods} />
+                                < div className=" mb-5">                                         
+                                   <Itemlist prods = {prods}   />
                                                                    
 
-                                  </>
+                                  </div>
                        }  
                     
                     </center>
