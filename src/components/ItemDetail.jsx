@@ -10,7 +10,7 @@ import ItemCount from "./ItemCount"
 
 function ItemDetail ({prod}) {
   const [purchased, setPurchased] = useState(false);
-  const {addToCart,  cartList} = useCartContext()
+  const {addToCart} = useCartContext()
 
   const onAdd = (cant) => {
     
