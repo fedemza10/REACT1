@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-//import getFetch from "../Helpers/getFetch";
 import CargandoWidget from '../components/CargandoWidget';
 import Itemlist from "../components/ItemList";
 import { useParams } from "react-router-dom";
@@ -16,50 +15,26 @@ function ItemListContainer({ saludar }) {
   const [ prods, setProds] = useState ([])
   const {category} = useParams()
 
-  console.log (loading)
+ 
  
  
   useEffect (()=>{ 
    
     const database = getFirestore()
-    const queryCollection =  collection(database, 'items' )
-    if (category) {
-
-      const queryFilter = query (queryCollection, where('category', '==',category))
-
-         getDocs(queryFilter)
-        .then(response => setProds(response.docs.map(product => ({ id: product.id, ...product.data() }))))
-        .catch(err => console.log(err))
-        .finally(() => setLoading(() => false))   
-
-        } else {   
+   
+    const queryCollection =  category ? query( collection(database, 'items' ), where('category', '==',category)) 
+                             : collection(database, 'items' )
+    
+    
           
           getDocs(queryCollection)
          .then ((response=> setProds (response.docs.map ( product=>({id: product.id, ...product.data()})))))
          .catch (error => console.log(error))  
          .finally (()=> setLoading (false))
                 }
-          
-
-   
-    // if (category) {
-   //   getFetch
-    
-   // .then (response =>setProds(response.filter (prod=>prod.category === category)))
-   // .catch (error => console.log(error))  
-   // .finally (()=> setLoading (false))
-      
-   // } else {
-   //   getFetch
-    
-   // .then (response =>setProds(response))
-   // .catch (error => console.log(error))  
-    //.finally (()=> setLoading (false))
-      
-    }  
-    
+ 
   ,[category]) 
-  console.log (prods)
+  
  
   
   return (

@@ -18,8 +18,7 @@ function ItemDetail ({prod}) {
     
     
     setPurchased(true);
-    console.log (cant)
-    console.log(cartList)
+    
   };
 
  
@@ -45,7 +44,7 @@ function ItemDetail ({prod}) {
                           <div className="card-footer">                
 
                               <button className="btn btn-outline-primary btn-block">
-                                       $   {prod.price}
+                                      $ { `  ${prod.price} `}
                                      </button>   
 
                           </div>
@@ -63,14 +62,14 @@ function ItemDetail ({prod}) {
                                   
                               <>    
                                  <Link to='/cart' >
-                                       <button className="btn btn-outline-success  mt-3 mb-5" 
+                                       <button className="btn btn-outline-success  mt-5 mb-5" 
                                                onClick={()=>console.log('ir al carrito de compras') } >
                                                FINALIZA TU COMPRA
                                         </button>
                                     </Link>
 
                                  <Link to='/'>
-                                        <button className='btn btn-outline-warning ms-5 mt-3 mb-5 '
+                                        <button className='btn btn-outline-warning ms-5 mt-5 mb-5 '
                                                 onClick={()=>console.log('regresar a menu principal') }>
                                                 CONTINUAR COMPRANDO
                                         </button>

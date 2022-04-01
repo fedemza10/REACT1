@@ -18,15 +18,9 @@ function ItemDetailContainer() {
       .finally(() => setLoading(false));
 
     
- //     getFetch
-    
-    
-  //  .then (response =>setProds(response.find(prod => prod.id === detailId)))
-  // .catch (error => console.log(error))  
-  //  .finally (()=> setLoading (false))
-
+ 
   },[detailId]) 
-  console.log (prod)
+  
   
   return (
     <>

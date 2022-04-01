@@ -33,13 +33,6 @@ function ItemCount ({initial, stock, onAdd}) {
     const agregar = () => {
                            onAdd( count )
                            }
-                                      
-                                             
-    
-                                            
-    
-  console.log (count)
-  
                             
   
     return ( 

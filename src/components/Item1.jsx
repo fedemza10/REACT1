@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
  function Item ({prod} )  {
      return (
         <>
+           <Link to={`/detail/${prod.id}`}>
             <div  
                className='col-md-4' >
 
@@ -21,20 +22,21 @@ import { Link } from "react-router-dom"
                             </div>
                       
                           <div className="card-footer">     
-                          <Link to={`/detail/${prod.id}`}>
+                          
                           <button className="btn btn-outline-primary btn-block">
                                  Detalle del producto
                                  </button>                            
 
-                          </Link>         
+                                  
                           </div>
                                                                                             
                                                  
                         
                    </div>
-            </div>
+                    
+              </div>
 
-            
+            </Link>   
             
         </>
 ) 
