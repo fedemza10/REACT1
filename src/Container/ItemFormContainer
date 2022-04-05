@@ -15,7 +15,7 @@ function ItemFormContainer () {
     const generarOrden = async (e) => {
         e.preventDefault();
 
-            // Nuevo objeto de orders    
+               
             let orden = {}      
         
             orden.buyer = dataForm
@@ -49,37 +49,9 @@ function ItemFormContainer () {
 
     return (
         <div>
-            {id && <label className={'alert alert-success'} >El id de la compra es: {id}</label>}
-            {cartList.map(prod => 
-                          <div key= {prod.id}> 
-                            
-                              <div  
-                                  className='col-md-4' >
-
-                                       <div className="card w-100 mt-5" >                      
-
-                                              <div className="card-header">
-                                                   {prod.name} 
-                                              </div>
-
-                                              <div className="card-body">
-                                                  <img src={prod.image} 
-                                                       alt='' className='w-50' 
-                                                      />                                                                                              
-                                                </div>
-                        
-                                              <div className="card-footer">     
-                                                   Cantidad seleccionada: {prod.cantidad} 
-                                               </div>
-                                              
-
-                                      </div>
-
-                                </div>
-                                
-                           </div>
-                     )
-                }
+            {id && <label className={'alert alert-success'} >El id de la compra es: {id}. 
+            Por favor, completa tus datos. </label>}
+            {
 
             <form 
                 className='mt-5'
@@ -116,7 +88,9 @@ function ItemFormContainer () {
                 
                 <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>
             </form>
-        </div>
-  )
+           }
+        </div>   
+        )  
+  
 }
 export default ItemFormContainer
