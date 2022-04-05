@@ -8,6 +8,7 @@ import ItemDetailContainer from './Container/ItemDetailContainer';
 import Cart from './components/Cart';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import CartContextProvider from './components/Context/CartContext';
+import ItemFormContainer from './Container/ItemFormContainer';
 
 
 
@@ -56,6 +57,14 @@ function App() {
                   <Route path ='/Cart'
                            element = {
                                <Cart/>
+                                     }
+                   >
+
+                  </Route>
+
+                  <Route path ='/form'
+                           element = {
+                               <ItemFormContainer/>
                                      }
                    >
 

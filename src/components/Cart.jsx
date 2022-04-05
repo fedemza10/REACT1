@@ -86,7 +86,7 @@ function Cart() {
                              El total de su compra es $ { totalCarrito }
                            </div>
                             
-                              <Link to= '/'>
+                              <Link to= '/form'>
                                    <button className= '  btn btn-outline-success  mt-5 mb-5' 
                                            >
                                            FINALIZA TU COMPRA

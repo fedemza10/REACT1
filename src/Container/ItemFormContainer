@@ -1,0 +1,122 @@
+import { useCartContext } from "../../context/CartContext"
+import { addDoc, collection, getFirestore,  } from 'firebase/firestore'
+import { useState } from "react"
+
+
+
+function ItemFormContainer () {
+    const [dataForm, setDataForm] = useState({email: '', name: '', phone: ''})
+    const [id, setId] = useState(null)
+    const { cartList, vaciarCarrito, totalCart } = useCartContext()
+    const totalCarrito = totalCart()
+    
+
+
+    const generarOrden = async (e) => {
+        e.preventDefault();
+
+            // Nuevo objeto de orders    
+            let orden = {}      
+        
+            orden.buyer = dataForm
+            orden.total = totalCarrito
+        
+            orden.items = cartList.map(item => {
+                const id = item.id
+                const nombre = item.name
+                const precio = item.price * item.cantidad
+                
+                return {id, nombre, precio}   
+            })
+            
+            const database = getFirestore()
+            const queryCollectionItems = collection(database, 'orders')
+            await addDoc(queryCollectionItems, orden) 
+            .then(({ id }) => setId(id))
+            .catch(err => console.log(err))
+            .finally(() => vaciarCarrito)
+            
+          
+    }
+
+    const handleChange = (e) => {
+        setDataForm( {
+          ...dataForm,
+          [e.target.name]: e.target.value
+      } )
+    }
+
+
+    return (
+        <div>
+            {id && <label className={'alert alert-success'} >El id de la compra es: {id}</label>}
+            {cartList.map(prod => 
+                          <div key= {prod.id}> 
+                            
+                              <div  
+                                  className='col-md-4' >
+
+                                       <div className="card w-100 mt-5" >                      
+
+                                              <div className="card-header">
+                                                   {prod.name} 
+                                              </div>
+
+                                              <div className="card-body">
+                                                  <img src={prod.image} 
+                                                       alt='' className='w-50' 
+                                                      />                                                                                              
+                                                </div>
+                        
+                                              <div className="card-footer">     
+                                                   Cantidad seleccionada: {prod.cantidad} 
+                                               </div>
+                                              
+
+                                      </div>
+
+                                </div>
+                                
+                           </div>
+                     )
+                }
+
+            <form 
+                className='mt-5'
+                onSubmit={generarOrden}                 
+            >
+                <input 
+                    type='text' 
+                    name='name' 
+                    placeholder='name' 
+                    value={dataForm.name}
+                    onChange={handleChange}
+                /><br />
+                <input 
+                    type='text' 
+                    name='phone'
+                    placeholder='tel' 
+                    value={dataForm.phone}
+                    onChange={handleChange}
+                /><br/>
+                <input 
+                    type='email' 
+                    name='email'
+                    placeholder='email' 
+                    value={dataForm.email}
+                    onChange={handleChange}
+                /><br/>
+                <input 
+                    type='email' 
+                    name='email1'
+                    placeholder='repita email' 
+                    value={dataForm.email}
+                    onChange={handleChange}
+                /><br/>
+                
+                <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>
+            </form>
+        </div>
+  )
+}
+export default ItemFormContainer
