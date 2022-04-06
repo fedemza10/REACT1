@@ -119,7 +119,7 @@ function ItemFormContainer () {
                     required
                 /><br/>
                 
-                <button  className="btn btn-outline-success   mt-3"  > CONFIRMAR ORDEN DE COMPRA
+                <button  className="btn btn-outline-success   mt-3" onClick={vaciarCarrito}>  CONFIRMAR ORDEN DE COMPRA
                   </button>
             </form>)
            
