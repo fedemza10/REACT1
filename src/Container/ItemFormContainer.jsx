@@ -1,7 +1,7 @@
 import { useCartContext } from "../components/Context/CartContext"
 import { addDoc, collection, getFirestore,  } from 'firebase/firestore'
 import { useState } from "react"
-import { Link } from "react-router-dom"
+
 
 
 
@@ -46,63 +46,81 @@ function ItemFormContainer () {
           
     }
 
-    const handleChange = (e) => {
+    const handleChange = (event) => {
         setDataForm( {
           ...dataForm,
-          [e.target.name]: e.target.value
+          [event.target.name]: event.target.value
       } )
     }
 
 
     return (
-        <div>
-            
+        <div >
+          <center>  
             { purchase? <div>
            
-           { <label className={'alert alert-success'} >El id de la compra es: {id} 
+           { <label className={'alert alert-success mt-5'} >La operación fue realizada con éxito. El ID de su compra es: {id}.  
                    </label>
 
             }
+          
    
-     </div> : (
-
+            </div> : (
+        
             <form 
-                className='mt-5'
+                class="row  needs-validation" novalidate
                 onSubmit={generateOrder}                 
             >
+              <div>  
+                  <label  className="form-label mt-2" > NOMBRE 
+                     </label>
                 <input 
+                    className="form-control "
                     type='text' 
-                    name='name' 
+                    name='name'                     
                     placeholder='name' 
                     value={dataForm.name}
+                    required
                     onChange={handleChange}
+                   
                 /><br />
+                </div>
+                <label className="form-label" > TELEFONO
+                     </label>
                 <input 
+                    className="form-control"
                     type='number' 
                     name='phone'
-                    placeholder='tel' 
-                    required
+                    placeholder='phone' 
                     value={dataForm.phone}
                     onChange={handleChange}
+                    required
                 /><br/>
+                <label className="form-label mt-2" > EMAIL
+                     </label>
                 <input 
+                    className="mt-3 form-control"
                     type='email' 
                     name='email'
-                    required
                     placeholder='email' 
                     value={dataForm.email}
                     onChange={handleChange}
+                    required
                 /><br/>
-                <input 
+                <label className="form-label mt-2"> REPETIR EMAIL
+                     </label>
+                <input
+                    className=" mt-3 form-control" 
                     type='email' 
                     name='email1'
-                    placeholder='repita email' 
-                    required
+                    placeholder='repeat your email'                     
                     value={dataForm.email}
                     onChange={handleChange}
+                    required
                 /><br/>
                 
-                <button  className="btn btn-outline-primary"  onClick={generateOrder}  >Terminar Compra</button>
+                <button  className="btn btn-outline-success   mt-5"  onClick={generateOrder}> CONFIRMAR ORDEN DE COMPRA
+                  </button>
             </form>)
            
                   
@@ -110,6 +128,7 @@ function ItemFormContainer () {
                            
 
             }
+          </center>
         </div>   
         )  
   
