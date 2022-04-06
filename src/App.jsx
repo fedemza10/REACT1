@@ -62,7 +62,7 @@ function App() {
 
                   </Route>
 
-                  <Route path ='/form'
+                  <Route path ='/form/'
                            element = {
                                <ItemFormContainer/>
                                      }

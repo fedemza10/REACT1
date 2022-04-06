@@ -1,40 +1,47 @@
-import { useCartContext } from "../../context/CartContext"
+import { useCartContext } from "../components/Context/CartContext"
 import { addDoc, collection, getFirestore,  } from 'firebase/firestore'
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 
 
 function ItemFormContainer () {
     const [dataForm, setDataForm] = useState({email: '', name: '', phone: ''})
-    const [id, setId] = useState(null)
+    const [id, setId] = useState('')
+    const [purchase, setPurchase] = useState(false);
     const { cartList, vaciarCarrito, totalCart } = useCartContext()
     const totalCarrito = totalCart()
     
 
 
-    const generarOrden = async (e) => {
-        e.preventDefault();
+    const generateOrder = async (event) => { 
+        event.preventDefault();  
 
                
-            let orden = {}      
+            let order = {}      
         
-            orden.buyer = dataForm
-            orden.total = totalCarrito
+            order.buyer = dataForm
+            order.total = totalCarrito
         
-            orden.items = cartList.map(item => {
+            order.items = cartList.map(item => {
                 const id = item.id
                 const nombre = item.name
                 const precio = item.price * item.cantidad
                 
                 return {id, nombre, precio}   
             })
+
             
             const database = getFirestore()
             const queryCollectionItems = collection(database, 'orders')
-            await addDoc(queryCollectionItems, orden) 
+            await addDoc(queryCollectionItems, order) 
             .then(({ id }) => setId(id))
             .catch(err => console.log(err))
             .finally(() => vaciarCarrito)
+
+            setPurchase (true)
+
+            
             
           
     }
@@ -49,13 +56,19 @@ function ItemFormContainer () {
 
     return (
         <div>
-            {id && <label className={'alert alert-success'} >El id de la compra es: {id}. 
-            Por favor, completa tus datos. </label>}
-            {
+            
+            { purchase? <div>
+           
+           { <label className={'alert alert-success'} >El id de la compra es: {id} 
+                   </label>
+
+            }
+   
+     </div> : (
 
             <form 
                 className='mt-5'
-                onSubmit={generarOrden}                 
+                onSubmit={generateOrder}                 
             >
                 <input 
                     type='text' 
@@ -65,15 +78,17 @@ function ItemFormContainer () {
                     onChange={handleChange}
                 /><br />
                 <input 
-                    type='text' 
+                    type='number' 
                     name='phone'
                     placeholder='tel' 
+                    required
                     value={dataForm.phone}
                     onChange={handleChange}
                 /><br/>
                 <input 
                     type='email' 
                     name='email'
+                    required
                     placeholder='email' 
                     value={dataForm.email}
                     onChange={handleChange}
@@ -82,13 +97,19 @@ function ItemFormContainer () {
                     type='email' 
                     name='email1'
                     placeholder='repita email' 
+                    required
                     value={dataForm.email}
                     onChange={handleChange}
                 /><br/>
                 
-                <button  className="btn btn-outline-primary"  onClick={generarOrden} >Terminar Compra</button>
-            </form>
-           }
+                <button  className="btn btn-outline-primary"  onClick={generateOrder}  >Terminar Compra</button>
+            </form>)
+           
+                  
+                            
+                           
+
+            }
         </div>   
         )  
   
