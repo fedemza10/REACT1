@@ -68,7 +68,7 @@ function ItemFormContainer () {
             </div> : (
         
             <form 
-                class="row  needs-validation" novalidate
+                className="form control w-50" 
                 onSubmit={generateOrder}                 
             >
               <div>  
@@ -119,7 +119,7 @@ function ItemFormContainer () {
                     required
                 /><br/>
                 
-                <button  className="btn btn-outline-success   mt-5"  onClick={generateOrder}> CONFIRMAR ORDEN DE COMPRA
+                <button  className="btn btn-outline-success   mt-3"  > CONFIRMAR ORDEN DE COMPRA
                   </button>
             </form>)
            
